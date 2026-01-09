@@ -3,7 +3,7 @@ from pathlib import Path
 
 def get_image_data():
     image_data = []
-    for idx, file_path in enumerate(sorted(Path("src/data/Annotation/").glob("*.txt")), start=1):
+    for idx, file_path in enumerate(sorted(Path("src/data/PennFudanPed/Annotation/").glob("*.txt")), start=1):
         with open(file_path, "r", encoding="utf-8") as file:
             content = file.readlines()
             for line in content:
@@ -32,3 +32,7 @@ def get_image_data():
     print(f"Found {len(image_data)} objects in total.")
     print(image_data)
     return image_data
+
+
+if __name__ == "__main__":
+    get_image_data()

@@ -3,5 +3,6 @@ lib/
 lib64
 share/
 src/data
+src/inference
 *.pyc
 __pycache__/
