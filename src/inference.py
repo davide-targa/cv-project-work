@@ -40,7 +40,8 @@ with tempfile.TemporaryDirectory() as tmpdirname:
     model = fasterrcnn_resnet50_fpn(weights="DEFAULT")
     in_features = model.roi_heads.box_predictor.cls_score.in_features
     model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes=2)
-    model.load_state_dict(torch.load("/home/davide/code/cv/mine_pennfudan-30epoch-0.037-20260103-13:20.pth", weights_only=True))
+    # model.load_state_dict(torch.load("/home/davide/code/cv/mine_pennfudan-30epoch-0.037-20260103-13:20.pth", weights_only=True))
+    model.load_state_dict(torch.load("/home/davide/code/cv/mine_pennfudan-extended-27epoch-0.018-20260110-00:26.pth", weights_only=True))
     model.cuda()
     model.eval()
     device = torch.device("cuda")

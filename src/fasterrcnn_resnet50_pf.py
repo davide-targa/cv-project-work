@@ -19,81 +19,9 @@ from torchvision.transforms import v2
 from torchvision.transforms.functional import to_tensor
 
 from utils.cv_logger import logging
+from utils.datasets import PennFudanDataset
 
 logger = logging.getLogger(f"cv.{Path(__file__).stem}")
-
-URL: str = "https://www.cis.upenn.edu/~jshi/ped_html/PennFudanPed.zip"
-ZIP_NAME: str = URL.split("/")[-1]
-FOLDER_NAME: str = ZIP_NAME.split(".")[0]
-
-
-class PennFudanDataset(Dataset):
-
-    def __init__(self, root: str = "./src/data") -> None:
-        super().__init__()
-        self.root = Path(root)
-        self.dataset_root = self.root / FOLDER_NAME
-        self._download()
-        self.images = sorted((self.dataset_root / "PNGImages").glob("*.png"))
-        self.masks = sorted((self.dataset_root / "PedMasks").glob("*.png"))
-        if not self.images:
-            raise RuntimeError("PennFudanPed sembra vuoto: controlla la struttura delle cartelle.")
-
-    def __len__(self) -> int:
-        return len(self.images)
-
-    def __getitem__(self, idx: int) -> Tuple[Tensor, Dict[str, Tensor]]:
-        image = Image.open(self.images[idx]).convert("RGB")
-        mask = Image.open(self.masks[idx])
-        mask_np = np.array(mask)
-        obj_ids = np.unique(mask)
-        obj_ids = obj_ids[1:]  # 0 = sfondo
-
-        # plt.figure(figsize=(10, 5))
-        # plt.subplot(1, 2, 1)
-        # plt.imshow(image.permute(1, 2, 0))
-        # plt.subplot(1, 2, 2)
-        # plt.imshow(mask)
-        # plt.show()
-
-        # Estrazione delle maschere di ogni persona all'interno dell'immagine
-        boxes_list = []
-        for obj_id in obj_ids:
-            ys, xs = np.where(mask_np == obj_id)
-            if xs.size == 0 or ys.size == 0:
-                continue
-            x_min, x_max = float(xs.min()), float(xs.max())
-            y_min, y_max = float(ys.min()), float(ys.max())
-            boxes_list.append([x_min, y_min, x_max, y_max])
-
-        # from torchvision.utils import draw_bounding_boxes
-        # output_image = draw_bounding_boxes(to_tensor(image), boxes=torch.tensor(boxes_list, dtype=torch.float32), colors="red", width=2)
-        # plt.figure(figsize=(12, 12))
-        # plt.imshow(output_image.permute(1, 2, 0))
-
-        if boxes_list:
-            # Coordinates delle bounding box per ogni maschera dell'immagine
-            boxes = torch.tensor(boxes_list, dtype=torch.float32)
-            # La classe è unica quindi per  ad ogni persona assegniamo label 1
-            labels = torch.ones((boxes.size(0),), dtype=torch.int64)  # unica classe: person
-        else:
-            boxes = torch.zeros((0, 4), dtype=torch.float32)
-            labels = torch.zeros((0,), dtype=torch.int64)
-
-        target = {
-            "boxes": boxes,
-            "labels": labels,
-            "image_id": torch.tensor([idx], dtype=torch.int64),
-        }
-        return to_tensor(image), target
-
-    def _download(self) -> None:
-        self.root.mkdir(parents=True, exist_ok=True)
-        if self.dataset_root.exists():  # Dataset già esistente
-            logger.info("Dataset Penn-Fudan già presente.")
-            return
-        logger.info("Download ed estrazione del dataset Penn-Fudan...")
-        download_and_extract_archive(url=self.URL, download_root=str(self.root), filename=ZIP_NAME)
 
 
 def collate_detection(batch: List[Tuple[Tensor, Dict[str, Tensor]]]) -> Tuple[List[Tensor], List[Dict[str, Tensor]]]:
@@ -137,7 +65,7 @@ def main() -> None:
     model.to(device)
 
     optimizer = torch.optim.SGD(model.parameters(), lr=5e-4, momentum=0.9, weight_decay=5e-4)
-    num_epochs = 30
+    num_epochs = 2
     for epoch in range(1, num_epochs + 1):
         tic = time.perf_counter()
         model.train()

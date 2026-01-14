@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pandas as pd
+
 
 def get_image_data():
     image_data = []
@@ -29,9 +31,9 @@ def get_image_data():
                     )
                     print(f"{idx} - {filename:<16} ({object_index}): ({x_min}, {y_min}) - ({x_max}, {y_max})")
 
-    print(f"Found {len(image_data)} objects in total.")
-    print(image_data)
-    return image_data
+    print(f"Found {len(image_data)} objects.")
+    df = pd.DataFrame(image_data)
+    df.to_csv("src/data/PennFudanPed/image_data.csv", index=False)
 
 
 if __name__ == "__main__":

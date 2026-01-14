@@ -6,3 +6,7 @@ src/data
 src/inference
 *.pyc
 __pycache__/
+*.pth
+runs/
+*.pt
+*.mp4
