@@ -1,6 +1,7 @@
 import argparse
 import tempfile
 import time
+from importlib import import_module
 from pathlib import Path
 
 import torch
@@ -20,6 +21,8 @@ parser = argparse.ArgumentParser(
     prog="Video object detector",
     description="Object detection di persone nei video.",
 )
+parser.add_argument("model_module", type=str, help="Il modulo python da cui importare il modello")
+# parser.add_argument("weights_file", type=str, help="Il file contenente i pesi del modello")
 parser.add_argument("input_video", type=str, help="Percorso al file di input.")
 parser.add_argument("output_video", type=str, help="Percorso del file di output.")
 args = parser.parse_args()
@@ -27,6 +30,10 @@ args = parser.parse_args()
 INPUT_VIDEO_PATH = Path(args.input_video)
 OUTPUT_VIDEO_PATH = Path(args.output_video)
 SCORE_THRESHOLD = 0.5
+
+# Import dinamico del modello in base al parametro da riga di comando
+get_model = getattr(import_module(args.model_module), "get_model")
+
 
 with tempfile.TemporaryDirectory() as tmpdirname:
     logger.info(f"Directory temporanea creata in {tmpdirname}")
@@ -38,10 +45,8 @@ with tempfile.TemporaryDirectory() as tmpdirname:
     ffmpeg["-i", str(INPUT_VIDEO_PATH.absolute()), f"{frames_dir / "out-%06d.png"}"]()
     logger.info("Estrazione frame completata.")
 
-    model = fasterrcnn_resnet50_fpn(weights="DEFAULT")
-    in_features = model.roi_heads.box_predictor.cls_score.in_features
-    model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes=2)
-    model.load_state_dict(torch.load("/home/davide/code/cv/mine_pennfudan-extended-27epoch-0.018-20260110-00:26.pth", weights_only=True))
+    model = get_model()
+    model.load_state_dict(torch.load("/home/davide/code/cv/ssd300_vgg16-1epoch-2.440-20260116-14:06.pth", weights_only=True))
     model.cuda()
     model.eval()
     device = torch.device("cuda")
@@ -56,7 +61,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
         # draw = ImageDraw.Draw(image)
         # text = ImageText.Text(str(len(boxes)))
         # draw.text((10, 10), text, "#0f0")
-        output_image = draw_bounding_boxes(to_tensor(image), boxes=torch.tensor(boxes, dtype=torch.float32), colors="blue", width=2)
+        output_image = draw_bounding_boxes(to_tensor(image), boxes=torch.tensor(boxes, dtype=torch.float32), colors="blue", width=5)
         save_image(output_image, detection_frames_dir / f"det-{frame.name.split('-')[1]}")
         toc = time.perf_counter()
         logger.info(f"[{idx:04d}/{len(frames_files):04d}] Processato il frame {frame.name} in {toc - tic:.3f} secondi ({len(boxes)} persona/e).")
@@ -65,6 +70,3 @@ with tempfile.TemporaryDirectory() as tmpdirname:
     logger.info(f"Creo il video di output in {OUTPUT_VIDEO_PATH}...")
     ffmpeg["-framerate", "30", "-i", str(detection_frames_dir / "det-%06d.png"), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(OUTPUT_VIDEO_PATH.absolute())]()
     logger.info("Video di output creato con successo.")
-    import pdb
-
-    pdb.set_trace()

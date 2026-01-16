@@ -12,7 +12,8 @@ from torch.utils.data import DataLoader, Dataset, random_split
 from torchvision.datasets.utils import download_and_extract_archive
 from torchvision.io import read_image
 from torchvision.models import VGG16_Weights
-from torchvision.models.detection import ssd300_vgg16
+from torchvision.models.detection import fasterrcnn_resnet50_fpn, ssd300_vgg16
+from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.ops.boxes import masks_to_boxes
 from torchvision.transforms import v2
 from torchvision.transforms.functional import to_tensor
@@ -37,6 +38,11 @@ def quick_eval(model: torch.nn.Module, loader: DataLoader, device: torch.device,
     print(f"[quick_eval] detections >= {score_thresh}: {keep}")
 
 
+def get_model():
+    model = ssd300_vgg16(weights="DEFAULT")
+    return model
+
+
 def main() -> None:
     if torch.cuda.is_available():
         logger.info("CUDA disponibile. Uso la GPU.")
@@ -51,35 +57,23 @@ def main() -> None:
     train_size = int(0.8 * len(dataset))
     val_size = len(dataset) - train_size
     train_ds, val_ds = random_split(dataset, [train_size, val_size], generator=generator)
-
     train_loader = DataLoader(train_ds, batch_size=2, shuffle=True, num_workers=2, collate_fn=collate_detection)
     val_loader = DataLoader(val_ds, batch_size=2, shuffle=False, num_workers=2, collate_fn=collate_detection)
 
-    from torchvision.models.detection import fasterrcnn_resnet50_fpn
-    from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
-
-    model = fasterrcnn_resnet50_fpn(weights="DEFAULT")
-    in_features = model.roi_heads.box_predictor.cls_score.in_features
-    model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes=2)
+    model = get_model()
     model.to(device)
 
     optimizer = torch.optim.SGD(model.parameters(), lr=5e-4, momentum=0.9, weight_decay=5e-4)
-    num_epochs = 30
+    num_epochs = 300
     best = 999
     prevoius_file = None
+    start_time = datetime.now()
     for epoch in range(1, num_epochs + 1):
         tic = time.perf_counter()
         model.train()
         for imgs, targets in train_loader:
             imgs = [img.to(device) for img in imgs]
             targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
-            """
-            boxes: tensor float32 [N, 4] con le bounding box in formato (xmin, ymin, xmax, ymax) in pixel sull’immagine originale.
-            labels: tensor int64 [N] con l’id di classe di ciascun box (qui sempre 1, perché Penn-Fudan ha solo “person”).
-            image_id: tensor int64 [1] usato solo come identificativo interno; in questo script è l’indice dell’immagine nel dataset.
-            area: tensor float32 [N] con l’area di ogni box (serve a certe metriche, SSD non lo usa direttamente).
-            iscrowd: tensor int64 [N] che segnala box “crowd” (COCO-style); lo teniamo tutto a zero.
-            """
             loss_dict = model(imgs, targets)  # type: ignore[arg-type]
             loss = sum(loss_dict.values())
             optimizer.zero_grad()
@@ -93,7 +87,7 @@ def main() -> None:
             if prevoius_file:
                 logger.info(f"Removing previous best model file {prevoius_file}.")
                 Path(prevoius_file).unlink()
-            outfile = f"mine_pennfudan-extended-{epoch}epoch-{loss.item():.3f}-{datetime.now().strftime('%Y%m%d-%H:%M')}.pth"
+            outfile = f"{Path(__file__).stem}-{epoch}epoch-{loss.item():.3f}-{start_time.strftime('%Y%m%d-%H:%M')}.pth"
             torch.save(model.state_dict(), outfile)
             logger.info(f"New best model saved to {outfile} ({loss.item():.3f} < {best:.3f}).")
             prevoius_file = outfile
