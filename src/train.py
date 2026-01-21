@@ -29,7 +29,7 @@ def collate_detection(batch: List[Tuple[Tensor, Dict[str, Tensor]]]) -> Tuple[Li
     return images, targets
 
 
-def main(model_module: str, dataset: torch.utils.data.Dataset) -> None:
+def main(num_epochs: int, model_module: str, dataset: torch.utils.data.Dataset) -> None:
     if torch.cuda.is_available():
         logger.info("CUDA disponibile. Uso la GPU.")
         device = torch.device("cuda")
@@ -49,7 +49,6 @@ def main(model_module: str, dataset: torch.utils.data.Dataset) -> None:
     model.to(device)
 
     optimizer = torch.optim.SGD(model.parameters(), lr=5e-4, momentum=0.9, weight_decay=5e-4)
-    num_epochs = 30
     best = 999
     prevoius_file = None
     start_time = datetime.now()
@@ -85,6 +84,11 @@ if __name__ == "__main__":
         description="Addestramento di una rete per object detection di persone nei video.",
     )
     parser.add_argument(
+        "num_epochs",
+        type=int,
+        help="Il numero di epoche di addestramento",
+    )
+    parser.add_argument(
         "model_name",
         type=str,
         help="Il modulo del modello da addestrare",
@@ -102,4 +106,4 @@ if __name__ == "__main__":
             dataset = PennFudanDataset()
         case "extended":
             dataset = PennFudanExtendedDataset()
-    main(model_module=args.model_name, dataset=dataset)
+    main(num_epochs=args.num_epochs, model_module=args.model_name, dataset=dataset)
