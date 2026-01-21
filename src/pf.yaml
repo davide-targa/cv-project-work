@@ -1,0 +1,6 @@
+path: src/data/PennFudan_4_YOLO
+train: images/train
+val: images/val
+
+names:
+  0: person
