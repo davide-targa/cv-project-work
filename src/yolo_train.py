@@ -12,7 +12,7 @@ logger = logging.getLogger(f"cv.{Path(__file__).stem}")
 def main():
     PennFudanYOLODataset()
     model = YOLO("yolo26n.pt")
-    model.train(data="src/data/PennFudan_4_YOLO/pf.yaml", epochs=100, imgsz=640)
+    model.train(data="src/pf.yaml", epochs=100, imgsz=640)
 
 
 if __name__ == "__main__":
