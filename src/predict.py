@@ -18,10 +18,27 @@ parser = argparse.ArgumentParser(
     prog="Video object detector",
     description="Object detection di persone nei video.",
 )
-parser.add_argument("model_module", type=str, help="Il modulo python da cui importare il modello")
-parser.add_argument("weights_file", type=str, help="Il file contenente i pesi del modello")
-parser.add_argument("input_video", type=str, help="Percorso al file di input.")
-parser.add_argument("output_video", type=str, help="Percorso del file di output.")
+parser.add_argument(
+    "model_name",
+    type=str,
+    help="Il modulo python da cui importare il modello",
+    choices=[model.stem for model in Path("src/models").glob("*.py") if model.stem != "__init__"],
+)
+parser.add_argument(
+    "weights_file",
+    type=str,
+    help="Il file contenente i pesi del modello",
+)
+parser.add_argument(
+    "input_video",
+    type=str,
+    help="Percorso al file di input.",
+)
+parser.add_argument(
+    "output_video",
+    type=str,
+    help="Percorso del file di output.",
+)
 args = parser.parse_args()
 
 INPUT_VIDEO_PATH = Path(args.input_video)
@@ -29,7 +46,7 @@ OUTPUT_VIDEO_PATH = Path(args.output_video)
 SCORE_THRESHOLD = 0.5
 
 # Import dinamico del modello in base al parametro da riga di comando
-get_model = getattr(import_module(args.model_module), "get_model")
+get_model = getattr(import_module(args.model_name), "get_model")
 
 
 with tempfile.TemporaryDirectory() as tmpdirname:
