@@ -20,7 +20,7 @@ def quick_eval(model: torch.nn.Module, loader: DataLoader, device: torch.device,
     images, _ = next(iter(loader))
     preds = model([images[0].to(device)])  # type: ignore[arg-type]
     keep = (preds[0]["scores"] > score_thresh).sum().item()
-    print(f"[quick_eval] detections >= {score_thresh}: {keep}")
+    logger.info(f"[quick_eval] detections >= {score_thresh}: {keep}")
 
 
 def collate_detection(batch: List[Tuple[Tensor, Dict[str, Tensor]]]) -> Tuple[List[Tensor], List[Dict[str, Tensor]]]:
@@ -64,7 +64,7 @@ def main(num_epochs: int, model_module: str, dataset: torch.utils.data.Dataset) 
             loss.backward()
             optimizer.step()
         toc = time.perf_counter()
-        print(f"[epoch {epoch}] loss={loss.item():.3f} in {toc - tic:.1f}sec")
+        logger.info(f"[epoch {epoch}] loss={loss.item():.3f} in {toc - tic:.1f}sec")
         quick_eval(model, val_loader, device, score_thresh=0.5)
         if loss.item() < best:
             logger.info(f"New best model found at epoch {epoch} with loss {loss.item():.3f} (previous best was {best:.3f}).")
