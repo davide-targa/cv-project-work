@@ -12,6 +12,7 @@ Per effettuare il training:
 
 ```bash
 python src/train.py 10 fasterrcnn_resnet50 extended
+python src/train.py 30 ssd300_vgg16 extended
 ```
 
 Per l'inferenza:
