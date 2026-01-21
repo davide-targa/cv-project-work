@@ -5,11 +5,8 @@ from importlib import import_module
 from pathlib import Path
 
 import torch
-from matplotlib import pyplot as plt
-from PIL import Image, ImageDraw, ImageText
+from PIL import Image
 from plumbum.cmd import ffmpeg
-from torchvision.models.detection import fasterrcnn_resnet50_fpn
-from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.transforms.functional import to_tensor
 from torchvision.utils import draw_bounding_boxes, save_image
 

@@ -1,4 +1,3 @@
-import pdb
 from pathlib import Path
 from typing import Dict, Tuple
 
@@ -24,6 +23,7 @@ class PennFudanDataset(Dataset):
 
     def __init__(self, root: str = "./src/data") -> None:
         super().__init__()
+        logger.info("Utilizzo il dataset base")
         self.root = Path(root)
         self.dataset_root = self.root / self.FOLDER_NAME
         self._download()
@@ -92,6 +92,7 @@ class PennFudanDataset(Dataset):
 class PennFudanExtendedDataset(PennFudanDataset):
     def __init__(self, root: str = "./src/data") -> None:
         super().__init__(root)
+        logger.info("Utilizzo il dataset extended")
         self.annotations_root = self.dataset_root / "Annotation"
         self.boxes = self._get_image_data()
 
@@ -99,9 +100,9 @@ class PennFudanExtendedDataset(PennFudanDataset):
         image = Image.open(self.images[idx]).convert("RGB")
         boxes_list = self.boxes.loc[self.boxes["filename"] == self.images[idx].name, ["x_min", "y_min", "x_max", "y_max"]].values.tolist()
         if boxes_list:
-            # Coordinates delle bounding box per ogni maschera dell'immagine
+            # Coordinate delle bounding box per ogni maschera dell'immagine
             boxes = torch.tensor(boxes_list, dtype=torch.float32)
-            # La classe è unica quindi per  ad ogni persona assegniamo label 1
+            # La classe è unica quindi a ogni persona assegniamo label 1
             labels = torch.ones((boxes.size(0),), dtype=torch.int64)  # unica classe: person
         else:
             boxes = torch.zeros((0, 4), dtype=torch.float32)
