@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(
     description="Object detection di persone nei video.",
 )
 parser.add_argument("model_module", type=str, help="Il modulo python da cui importare il modello")
-# parser.add_argument("weights_file", type=str, help="Il file contenente i pesi del modello")
+parser.add_argument("weights_file", type=str, help="Il file contenente i pesi del modello")
 parser.add_argument("input_video", type=str, help="Percorso al file di input.")
 parser.add_argument("output_video", type=str, help="Percorso del file di output.")
 args = parser.parse_args()
@@ -43,7 +43,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
     logger.info("Estrazione frame completata.")
 
     model = get_model()
-    model.load_state_dict(torch.load("/home/davide/code/cv/ssd300_vgg16-1epoch-2.440-20260116-14:06.pth", weights_only=True))
+    model.load_state_dict(torch.load(Path(args.weights_file), weights_only=True))
     model.cuda()
     model.eval()
     device = torch.device("cuda")
