@@ -6,3 +6,16 @@ La rete addestrata dovrà essere usata e applicata al dataset https://data.4tu.n
 
 I video andranno divisi nei vari frame e andrà fatta inferenza frame-per-frame e produrre il conteggio delle persone e capire quando una zone è affollata o meno.
 
+# Informazioni
+
+Per effettuare il training:
+
+```bash
+python src/train.py 10 fasterrcnn_resnet50 extended
+```
+
+Per l'inferenza:
+
+```bash
+
+```
