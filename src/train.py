@@ -71,7 +71,7 @@ def main(num_epochs: int, model_module: str, dataset: torch.utils.data.Dataset) 
             if prevoius_file:
                 logger.info(f"Removing previous best model file {prevoius_file}.")
                 Path(prevoius_file).unlink()
-            outfile = f"{Path(__file__).stem}-{epoch}epoch-{loss.item():.3f}-{start_time.strftime('%Y%m%d-%H:%M')}.pth"
+            outfile = f"{Path(__file__).stem}-{epoch}epoch-{loss.item():.3f}-{start_time.strftime('%Y%m%d-%H%M')}.pth"
             torch.save(model.state_dict(), outfile)
             logger.info(f"New best model saved to {outfile} ({loss.item():.3f} < {best:.3f}).")
             prevoius_file = outfile
