@@ -10,3 +10,4 @@ __pycache__/
 runs/
 *.pt
 *.mp4
+*.sif
