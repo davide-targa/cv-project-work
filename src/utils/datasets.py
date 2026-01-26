@@ -42,13 +42,6 @@ class PennFudanDataset(Dataset):
         obj_ids = np.unique(mask)
         obj_ids = obj_ids[1:]  # 0 = sfondo
 
-        # plt.figure(figsize=(10, 5))
-        # plt.subplot(1, 2, 1)
-        # plt.imshow(image.permute(1, 2, 0))
-        # plt.subplot(1, 2, 2)
-        # plt.imshow(mask)
-        # plt.show()
-
         # Estrazione delle maschere di ogni persona all'interno dell'immagine
         boxes_list = []
         for obj_id in obj_ids:
@@ -58,11 +51,6 @@ class PennFudanDataset(Dataset):
             x_min, x_max = float(xs.min()), float(xs.max())
             y_min, y_max = float(ys.min()), float(ys.max())
             boxes_list.append([x_min, y_min, x_max, y_max])
-
-        # from torchvision.utils import draw_bounding_boxes
-        # output_image = draw_bounding_boxes(to_tensor(image), boxes=torch.tensor(boxes_list, dtype=torch.float32), colors="red", width=2)
-        # plt.figure(figsize=(12, 12))
-        # plt.imshow(output_image.permute(1, 2, 0))
 
         if boxes_list:
             # Coordinates delle bounding box per ogni maschera dell'immagine

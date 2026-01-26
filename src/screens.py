@@ -8,9 +8,8 @@ from utils.datasets import PennFudanDataset, PennFudanTextDataset
 pf = PennFudanDataset()[0]
 pft = PennFudanTextDataset()
 
-import pdb
-
-pdb.set_trace()
-output_image = draw_bounding_boxes(pf[0][0], boxes=torch.tensor(pf[1]["boxes"], dtype=torch.float32), colors="red", width=2)
-plt.figure(figsize=(12, 12))
-plt.imshow(output_image.permute(1, 2, 0))
+output_image = draw_bounding_boxes(pf[0], boxes=pf[1]["boxes"], colors="red", width=2)
+# plt.figure(figsize=(12, 12))
+# plt.imshow(output_image.permute(1, 2, 0))
+# plt.show()
+to_pil_image(output_image).save("output_image.png")
