@@ -51,6 +51,8 @@ class PennFudanDataset(Dataset):
 
         # Estrazione delle maschere di ogni persona all'interno dell'immagine
         boxes_list = []
+        if self.images[idx].name == "FudanPed00058.png":
+            logger.info(f"Immagine {self.images[idx].name} - Trovati {len(obj_ids)} oggetti.")
         for obj_id in obj_ids:
             ys, xs = np.where(mask_np == obj_id)
             if xs.size == 0 or ys.size == 0:
@@ -89,10 +91,10 @@ class PennFudanDataset(Dataset):
         download_and_extract_archive(url=self.URL, download_root=str(self.root), filename=self.ZIP_NAME)
 
 
-class PennFudanExtendedDataset(PennFudanDataset):
+class PennFudanTextDataset(PennFudanDataset):
     def __init__(self, root: str = "./src/data") -> None:
         super().__init__(root)
-        logger.info("Utilizzo il dataset extended")
+        logger.info("Utilizzo il dataset text")
         self.annotations_root = self.dataset_root / "Annotation"
         self.boxes = self._get_image_data()
 
@@ -155,7 +157,7 @@ class PennFudanExtendedDataset(PennFudanDataset):
         return pd.DataFrame(image_data)
 
 
-class PennFudanYOLODataset(PennFudanExtendedDataset):
+class PennFudanYOLODataset(PennFudanTextDataset):
 
     PF_IMAGES_PATH = Path("src/data/PennFudanPed/PNGImages/")
     PF_ANNOTATIONS_PATH = Path("src/data/PennFudanPed/Annotation/")

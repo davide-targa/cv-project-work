@@ -10,7 +10,7 @@ from torch import Tensor
 from torch.utils.data import DataLoader, random_split
 
 from utils.cv_logger import logging
-from utils.datasets import PennFudanDataset, PennFudanExtendedDataset
+from utils.datasets import PennFudanDataset, PennFudanTextDataset
 
 logger = logging.getLogger(f"cv.{Path(__file__).stem}")
 
@@ -98,12 +98,12 @@ if __name__ == "__main__":
         "dataset_type",
         type=str,
         help="Il tipo di dataset da utilizzare",
-        choices=["base", "extended"],
+        choices=["base", "text"],
     )
     args = parser.parse_args()
     match args.dataset_type:
         case "base":
             dataset = PennFudanDataset()
-        case "extended":
-            dataset = PennFudanExtendedDataset()
+        case "text":
+            dataset = PennFudanTextDataset()
     main(num_epochs=args.num_epochs, model_module=args.model_name, dataset=dataset)
