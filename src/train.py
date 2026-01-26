@@ -99,6 +99,7 @@ if __name__ == "__main__":
         type=str,
         help="Il tipo di dataset da utilizzare",
         choices=["base", "text"],
+        default="base",
     )
     args = parser.parse_args()
     match args.dataset_type:
