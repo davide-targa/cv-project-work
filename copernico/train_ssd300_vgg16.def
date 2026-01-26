@@ -1,0 +1,14 @@
+Bootstrap: docker
+From: python:3.12.3-slim-bookworm
+
+%files
+    requirements.txt /app/requirements.txt
+
+%post
+    python -m venv /app/.venv
+    cd /app
+    /app/.venv/bin/pip3 install --root-user-action=ignore --upgrade pip
+    /app/.venv/bin/pip3 install --root-user-action=ignore -r requirements.txt
+
+%runscript
+    /app/.venv/bin/python src/train.py 10 train_ssd300_vgg16 base
