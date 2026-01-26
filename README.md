@@ -20,3 +20,15 @@ Per l'inferenza:
 ```bash
 
 ```
+
+# Esecuzione su cluster unife Copernico
+
+Build immagine apptainer:
+ ```bash
+ apptainer build copernico.sif copernico.def
+ ```
+
+Esecuzione immagine:
+```bash
+apptainer run --nv copernico.sif
+```
