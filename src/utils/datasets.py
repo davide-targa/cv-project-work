@@ -51,8 +51,6 @@ class PennFudanDataset(Dataset):
 
         # Estrazione delle maschere di ogni persona all'interno dell'immagine
         boxes_list = []
-        if self.images[idx].name == "FudanPed00058.png":
-            logger.info(f"Immagine {self.images[idx].name} - Trovati {len(obj_ids)} oggetti.")
         for obj_id in obj_ids:
             ys, xs = np.where(mask_np == obj_id)
             if xs.size == 0 or ys.size == 0:
