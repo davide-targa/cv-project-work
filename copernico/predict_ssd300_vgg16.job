@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH --nodes=1                        # 1 node
+#SBATCH --ntasks-per-node=32             # 32 tasks per node
+#SBATCH --time=0:10:00                   # time limit: 1 hour
+#SBATCH --error=train_ssd300_vgg16_%j.err  # standard error file
+#SBATCH --output=train_ssd300_vgg16_%j.out # standard output file
+##SBATCH --partition=gpuSlim             # partition name
+#SBATCH --partition=gpu                  # partition name
+#SBATCH --gres=gpu:1
+#SBATCH --mem=8G
+
+module load apptainer
+apptainer run --nv predict_ssd300_vgg16.sif

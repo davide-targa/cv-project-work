@@ -1,0 +1,235 @@
+2026-01-27 09:33:25,549 - cv.train - INFO - [epoch 1] loss=0.609 in 16.8sec
+2026-01-27 09:33:25,771 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:33:25,772 - cv.train - INFO - New best model found at epoch 1 with loss 0.609 (previous best was 999.000).
+2026-01-27 09:33:26,090 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-1epoch-0.609-20260127-0933.pth (0.609 < 999.000).
+2026-01-27 09:33:30,809 - cv.train - INFO - [epoch 2] loss=0.095 in 4.7sec
+2026-01-27 09:33:30,894 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:33:30,895 - cv.train - INFO - New best model found at epoch 2 with loss 0.095 (previous best was 0.609).
+2026-01-27 09:33:30,895 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-1epoch-0.609-20260127-0933.pth.
+2026-01-27 09:33:31,205 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-2epoch-0.095-20260127-0933.pth (0.095 < 0.609).
+2026-01-27 09:33:35,462 - cv.train - INFO - [epoch 3] loss=0.087 in 4.3sec
+2026-01-27 09:33:35,556 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:33:35,557 - cv.train - INFO - New best model found at epoch 3 with loss 0.087 (previous best was 0.095).
+2026-01-27 09:33:35,557 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-2epoch-0.095-20260127-0933.pth.
+2026-01-27 09:33:35,869 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-3epoch-0.087-20260127-0933.pth (0.087 < 0.095).
+2026-01-27 09:33:40,192 - cv.train - INFO - [epoch 4] loss=0.065 in 4.3sec
+2026-01-27 09:33:40,274 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:33:40,274 - cv.train - INFO - New best model found at epoch 4 with loss 0.065 (previous best was 0.087).
+2026-01-27 09:33:40,274 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-3epoch-0.087-20260127-0933.pth.
+2026-01-27 09:33:40,587 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-4epoch-0.065-20260127-0933.pth (0.065 < 0.087).
+2026-01-27 09:33:44,612 - cv.train - INFO - [epoch 5] loss=0.082 in 4.0sec
+2026-01-27 09:33:44,707 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:33:48,759 - cv.train - INFO - [epoch 6] loss=0.091 in 4.1sec
+2026-01-27 09:33:48,842 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:33:52,720 - cv.train - INFO - [epoch 7] loss=0.030 in 3.9sec
+2026-01-27 09:33:52,818 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:33:52,819 - cv.train - INFO - New best model found at epoch 7 with loss 0.030 (previous best was 0.065).
+2026-01-27 09:33:52,819 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-4epoch-0.065-20260127-0933.pth.
+2026-01-27 09:33:53,154 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-7epoch-0.030-20260127-0933.pth (0.030 < 0.065).
+2026-01-27 09:33:57,092 - cv.train - INFO - [epoch 8] loss=0.042 in 3.9sec
+2026-01-27 09:33:57,179 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:01,069 - cv.train - INFO - [epoch 9] loss=0.061 in 3.9sec
+2026-01-27 09:34:01,153 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:05,093 - cv.train - INFO - [epoch 10] loss=0.049 in 3.9sec
+2026-01-27 09:34:05,181 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:09,241 - cv.train - INFO - [epoch 11] loss=0.037 in 4.1sec
+2026-01-27 09:34:09,327 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:13,193 - cv.train - INFO - [epoch 12] loss=0.068 in 3.9sec
+2026-01-27 09:34:13,294 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:17,174 - cv.train - INFO - [epoch 13] loss=0.070 in 3.9sec
+2026-01-27 09:34:17,261 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:21,228 - cv.train - INFO - [epoch 14] loss=0.064 in 4.0sec
+2026-01-27 09:34:21,316 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:25,145 - cv.train - INFO - [epoch 15] loss=0.064 in 3.8sec
+2026-01-27 09:34:25,234 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:29,125 - cv.train - INFO - [epoch 16] loss=0.033 in 3.9sec
+2026-01-27 09:34:29,210 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:33,171 - cv.train - INFO - [epoch 17] loss=0.043 in 4.0sec
+2026-01-27 09:34:33,256 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:37,193 - cv.train - INFO - [epoch 18] loss=0.018 in 3.9sec
+2026-01-27 09:34:37,279 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:37,280 - cv.train - INFO - New best model found at epoch 18 with loss 0.018 (previous best was 0.030).
+2026-01-27 09:34:37,280 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-7epoch-0.030-20260127-0933.pth.
+2026-01-27 09:34:37,617 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-18epoch-0.018-20260127-0933.pth (0.018 < 0.030).
+2026-01-27 09:34:41,484 - cv.train - INFO - [epoch 19] loss=0.083 in 3.9sec
+2026-01-27 09:34:41,583 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:45,466 - cv.train - INFO - [epoch 20] loss=0.033 in 3.9sec
+2026-01-27 09:34:45,557 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:49,519 - cv.train - INFO - [epoch 21] loss=0.022 in 4.0sec
+2026-01-27 09:34:49,612 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:53,500 - cv.train - INFO - [epoch 22] loss=0.044 in 3.9sec
+2026-01-27 09:34:53,712 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:34:57,807 - cv.train - INFO - [epoch 23] loss=0.061 in 4.1sec
+2026-01-27 09:34:57,905 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:01,700 - cv.train - INFO - [epoch 24] loss=0.022 in 3.8sec
+2026-01-27 09:35:01,799 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:05,611 - cv.train - INFO - [epoch 25] loss=0.037 in 3.8sec
+2026-01-27 09:35:05,712 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:09,520 - cv.train - INFO - [epoch 26] loss=0.025 in 3.8sec
+2026-01-27 09:35:09,610 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:13,481 - cv.train - INFO - [epoch 27] loss=0.014 in 3.9sec
+2026-01-27 09:35:13,567 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:13,568 - cv.train - INFO - New best model found at epoch 27 with loss 0.014 (previous best was 0.018).
+2026-01-27 09:35:13,568 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-18epoch-0.018-20260127-0933.pth.
+2026-01-27 09:35:13,921 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-27epoch-0.014-20260127-0933.pth (0.014 < 0.018).
+2026-01-27 09:35:17,807 - cv.train - INFO - [epoch 28] loss=0.056 in 3.9sec
+2026-01-27 09:35:17,896 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:21,691 - cv.train - INFO - [epoch 29] loss=0.023 in 3.8sec
+2026-01-27 09:35:21,791 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:25,585 - cv.train - INFO - [epoch 30] loss=0.022 in 3.8sec
+2026-01-27 09:35:25,676 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:29,475 - cv.train - INFO - [epoch 31] loss=0.050 in 3.8sec
+2026-01-27 09:35:29,565 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:33,431 - cv.train - INFO - [epoch 32] loss=0.046 in 3.9sec
+2026-01-27 09:35:33,520 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:37,379 - cv.train - INFO - [epoch 33] loss=0.030 in 3.9sec
+2026-01-27 09:35:37,468 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:41,309 - cv.train - INFO - [epoch 34] loss=0.011 in 3.8sec
+2026-01-27 09:35:41,400 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:41,400 - cv.train - INFO - New best model found at epoch 34 with loss 0.011 (previous best was 0.014).
+2026-01-27 09:35:41,401 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-27epoch-0.014-20260127-0933.pth.
+2026-01-27 09:35:41,724 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-34epoch-0.011-20260127-0933.pth (0.011 < 0.014).
+2026-01-27 09:35:45,518 - cv.train - INFO - [epoch 35] loss=0.027 in 3.8sec
+2026-01-27 09:35:45,609 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:49,417 - cv.train - INFO - [epoch 36] loss=0.026 in 3.8sec
+2026-01-27 09:35:49,517 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:53,349 - cv.train - INFO - [epoch 37] loss=0.015 in 3.8sec
+2026-01-27 09:35:53,438 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:57,285 - cv.train - INFO - [epoch 38] loss=0.011 in 3.8sec
+2026-01-27 09:35:57,381 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:35:57,382 - cv.train - INFO - New best model found at epoch 38 with loss 0.011 (previous best was 0.011).
+2026-01-27 09:35:57,382 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-34epoch-0.011-20260127-0933.pth.
+2026-01-27 09:35:57,715 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-38epoch-0.011-20260127-0933.pth (0.011 < 0.011).
+2026-01-27 09:36:01,574 - cv.train - INFO - [epoch 39] loss=0.012 in 3.9sec
+2026-01-27 09:36:01,678 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:05,498 - cv.train - INFO - [epoch 40] loss=0.014 in 3.8sec
+2026-01-27 09:36:05,593 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:09,358 - cv.train - INFO - [epoch 41] loss=0.038 in 3.8sec
+2026-01-27 09:36:09,454 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:13,336 - cv.train - INFO - [epoch 42] loss=0.033 in 3.9sec
+2026-01-27 09:36:13,433 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:17,225 - cv.train - INFO - [epoch 43] loss=0.031 in 3.8sec
+2026-01-27 09:36:17,325 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:21,126 - cv.train - INFO - [epoch 44] loss=0.015 in 3.8sec
+2026-01-27 09:36:21,225 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:25,057 - cv.train - INFO - [epoch 45] loss=0.023 in 3.8sec
+2026-01-27 09:36:25,155 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:29,009 - cv.train - INFO - [epoch 46] loss=0.056 in 3.9sec
+2026-01-27 09:36:29,114 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:32,931 - cv.train - INFO - [epoch 47] loss=0.018 in 3.8sec
+2026-01-27 09:36:33,027 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:36,885 - cv.train - INFO - [epoch 48] loss=0.025 in 3.9sec
+2026-01-27 09:36:36,981 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:40,840 - cv.train - INFO - [epoch 49] loss=0.028 in 3.9sec
+2026-01-27 09:36:40,939 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:44,751 - cv.train - INFO - [epoch 50] loss=0.013 in 3.8sec
+2026-01-27 09:36:44,841 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:48,694 - cv.train - INFO - [epoch 51] loss=0.010 in 3.9sec
+2026-01-27 09:36:48,785 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:48,786 - cv.train - INFO - New best model found at epoch 51 with loss 0.010 (previous best was 0.011).
+2026-01-27 09:36:48,786 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-38epoch-0.011-20260127-0933.pth.
+2026-01-27 09:36:49,114 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-51epoch-0.010-20260127-0933.pth (0.010 < 0.011).
+2026-01-27 09:36:52,941 - cv.train - INFO - [epoch 52] loss=0.015 in 3.8sec
+2026-01-27 09:36:53,039 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:36:56,892 - cv.train - INFO - [epoch 53] loss=0.017 in 3.9sec
+2026-01-27 09:36:56,994 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:00,825 - cv.train - INFO - [epoch 54] loss=0.016 in 3.8sec
+2026-01-27 09:37:00,922 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:04,764 - cv.train - INFO - [epoch 55] loss=0.007 in 3.8sec
+2026-01-27 09:37:04,863 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:04,863 - cv.train - INFO - New best model found at epoch 55 with loss 0.007 (previous best was 0.010).
+2026-01-27 09:37:04,863 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-51epoch-0.010-20260127-0933.pth.
+2026-01-27 09:37:05,194 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-55epoch-0.007-20260127-0933.pth (0.007 < 0.010).
+2026-01-27 09:37:09,001 - cv.train - INFO - [epoch 56] loss=0.016 in 3.8sec
+2026-01-27 09:37:09,107 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:12,988 - cv.train - INFO - [epoch 57] loss=0.024 in 3.9sec
+2026-01-27 09:37:13,087 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:16,922 - cv.train - INFO - [epoch 58] loss=0.029 in 3.8sec
+2026-01-27 09:37:17,022 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:20,842 - cv.train - INFO - [epoch 59] loss=0.037 in 3.8sec
+2026-01-27 09:37:20,930 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:24,741 - cv.train - INFO - [epoch 60] loss=0.020 in 3.8sec
+2026-01-27 09:37:24,831 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:28,628 - cv.train - INFO - [epoch 61] loss=0.016 in 3.8sec
+2026-01-27 09:37:28,718 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:32,528 - cv.train - INFO - [epoch 62] loss=0.013 in 3.8sec
+2026-01-27 09:37:32,632 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:36,461 - cv.train - INFO - [epoch 63] loss=0.011 in 3.8sec
+2026-01-27 09:37:36,556 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:40,331 - cv.train - INFO - [epoch 64] loss=0.018 in 3.8sec
+2026-01-27 09:37:40,429 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:44,249 - cv.train - INFO - [epoch 65] loss=0.037 in 3.8sec
+2026-01-27 09:37:44,350 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:48,156 - cv.train - INFO - [epoch 66] loss=0.011 in 3.8sec
+2026-01-27 09:37:48,246 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:52,048 - cv.train - INFO - [epoch 67] loss=0.012 in 3.8sec
+2026-01-27 09:37:52,140 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:55,963 - cv.train - INFO - [epoch 68] loss=0.007 in 3.8sec
+2026-01-27 09:37:56,051 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:37:59,851 - cv.train - INFO - [epoch 69] loss=0.037 in 3.8sec
+2026-01-27 09:37:59,942 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:03,759 - cv.train - INFO - [epoch 70] loss=0.024 in 3.8sec
+2026-01-27 09:38:03,851 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:07,645 - cv.train - INFO - [epoch 71] loss=0.022 in 3.8sec
+2026-01-27 09:38:07,734 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:11,523 - cv.train - INFO - [epoch 72] loss=0.011 in 3.8sec
+2026-01-27 09:38:11,613 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:15,467 - cv.train - INFO - [epoch 73] loss=0.012 in 3.9sec
+2026-01-27 09:38:15,556 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:19,381 - cv.train - INFO - [epoch 74] loss=0.010 in 3.8sec
+2026-01-27 09:38:19,475 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:23,297 - cv.train - INFO - [epoch 75] loss=0.014 in 3.8sec
+2026-01-27 09:38:23,396 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:27,326 - cv.train - INFO - [epoch 76] loss=0.015 in 3.9sec
+2026-01-27 09:38:27,428 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:31,235 - cv.train - INFO - [epoch 77] loss=0.014 in 3.8sec
+2026-01-27 09:38:31,328 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:35,160 - cv.train - INFO - [epoch 78] loss=0.012 in 3.8sec
+2026-01-27 09:38:35,255 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:39,093 - cv.train - INFO - [epoch 79] loss=0.008 in 3.8sec
+2026-01-27 09:38:39,190 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:42,967 - cv.train - INFO - [epoch 80] loss=0.007 in 3.8sec
+2026-01-27 09:38:43,064 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:46,898 - cv.train - INFO - [epoch 81] loss=0.012 in 3.8sec
+2026-01-27 09:38:47,001 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:50,873 - cv.train - INFO - [epoch 82] loss=0.012 in 3.9sec
+2026-01-27 09:38:50,976 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:54,777 - cv.train - INFO - [epoch 83] loss=0.015 in 3.8sec
+2026-01-27 09:38:54,874 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:58,708 - cv.train - INFO - [epoch 84] loss=0.005 in 3.8sec
+2026-01-27 09:38:58,804 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:38:58,804 - cv.train - INFO - New best model found at epoch 84 with loss 0.005 (previous best was 0.007).
+2026-01-27 09:38:58,804 - cv.train - INFO - Removing previous best model file fasterrcnn_resnet50_v2-55epoch-0.007-20260127-0933.pth.
+2026-01-27 09:38:59,147 - cv.train - INFO - New best model saved to fasterrcnn_resnet50_v2-84epoch-0.005-20260127-0933.pth (0.005 < 0.007).
+2026-01-27 09:39:02,988 - cv.train - INFO - [epoch 85] loss=0.024 in 3.8sec
+2026-01-27 09:39:03,088 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:06,897 - cv.train - INFO - [epoch 86] loss=0.030 in 3.8sec
+2026-01-27 09:39:06,998 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:10,822 - cv.train - INFO - [epoch 87] loss=0.007 in 3.8sec
+2026-01-27 09:39:10,932 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:14,758 - cv.train - INFO - [epoch 88] loss=0.015 in 3.8sec
+2026-01-27 09:39:14,857 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:18,670 - cv.train - INFO - [epoch 89] loss=0.014 in 3.8sec
+2026-01-27 09:39:18,771 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:22,633 - cv.train - INFO - [epoch 90] loss=0.028 in 3.9sec
+2026-01-27 09:39:22,738 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:26,569 - cv.train - INFO - [epoch 91] loss=0.019 in 3.8sec
+2026-01-27 09:39:26,674 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:30,495 - cv.train - INFO - [epoch 92] loss=0.023 in 3.8sec
+2026-01-27 09:39:30,594 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:34,401 - cv.train - INFO - [epoch 93] loss=0.021 in 3.8sec
+2026-01-27 09:39:34,499 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:38,298 - cv.train - INFO - [epoch 94] loss=0.014 in 3.8sec
+2026-01-27 09:39:38,404 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:42,211 - cv.train - INFO - [epoch 95] loss=0.010 in 3.8sec
+2026-01-27 09:39:42,311 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:46,127 - cv.train - INFO - [epoch 96] loss=0.017 in 3.8sec
+2026-01-27 09:39:46,219 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:50,033 - cv.train - INFO - [epoch 97] loss=0.016 in 3.8sec
+2026-01-27 09:39:50,122 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:53,942 - cv.train - INFO - [epoch 98] loss=0.012 in 3.8sec
+2026-01-27 09:39:54,031 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:39:57,861 - cv.train - INFO - [epoch 99] loss=0.031 in 3.8sec
+2026-01-27 09:39:57,967 - cv.train - INFO - [quick_eval] detections >= 0.5: 1
+2026-01-27 09:40:01,773 - cv.train - INFO - [epoch 100] loss=0.022 in 3.8sec
+2026-01-27 09:40:01,863 - cv.train - INFO - [quick_eval] detections >= 0.5: 1

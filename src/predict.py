@@ -70,9 +70,6 @@ with tempfile.TemporaryDirectory() as tmpdirname:
         image_tensor = to_tensor(image)
         preds = model([image_tensor.to(device)])
         boxes = preds[0]["boxes"][preds[0]["scores"] > SCORE_THRESHOLD]
-        # draw = ImageDraw.Draw(image)
-        # text = ImageText.Text(str(len(boxes)))
-        # draw.text((10, 10), text, "#0f0")
         output_image = draw_bounding_boxes(to_tensor(image), boxes=torch.tensor(boxes, dtype=torch.float32), colors="blue", width=5)
         save_image(output_image, detection_frames_dir / f"det-{frame.name.split('-')[1]}")
         toc = time.perf_counter()
