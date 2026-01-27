@@ -11,4 +11,4 @@ From: python:3.12.3-slim-bookworm
     /app/.venv/bin/pip3 install --root-user-action=ignore -r requirements.txt
 
 %runscript
-    /app/.venv/bin/python src/train.py 10 fasterrcnn_resnet50_v2 base
+    /app/.venv/bin/python src/train.py 100 fasterrcnn_resnet50_v2 base

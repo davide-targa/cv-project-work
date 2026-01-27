@@ -24,9 +24,9 @@ Per l'inferenza:
 # Esecuzione su cluster unife Copernico
 
 Build immagine apptainer:
- ```bash
- apptainer build copernico.sif copernico.def
- ```
+```bash
+apptainer build copernico.sif copernico.def
+```
 
 Esecuzione immagine:
 ```bash
