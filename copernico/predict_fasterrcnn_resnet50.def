@@ -12,4 +12,4 @@ From: python:3.12.3-slim-bookworm
     /app/.venv/bin/pip3 install --root-user-action=ignore -r requirements.txt
 
 %runscript
-    /app/.venv/bin/python src/predict.py fasterrcnn_resnet50 fasterrcnn_resnet50.pth input.mp4 output.mp4
+    /app/.venv/bin/python src/predict.py fasterrcnn_resnet50 fasterrcnn_resnet50.pth input.avi output-fasterrcnn_resnet50.mp4
