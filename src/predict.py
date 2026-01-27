@@ -46,7 +46,7 @@ OUTPUT_VIDEO_PATH = Path(args.output_video)
 SCORE_THRESHOLD = 0.5
 
 # Import dinamico del model in base al parametro da riga di comando
-get_model = getattr(import_module(args.model_name), "get_model")
+get_model = getattr(import_module(f"models.{args.model_name}"), "get_model")
 with tempfile.TemporaryDirectory() as tmpdirname:
     logger.info(f"Directory temporanea creata in {tmpdirname}")
     frames_dir = Path(tmpdirname) / "frames"
