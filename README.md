@@ -28,7 +28,7 @@ Build immagine apptainer:
 apptainer build copernico.sif copernico.def
 ```
 
-Esecuzione immagine:
+Accodamento dello script sullo scheduler slurm:
 ```bash
-apptainer run --nv copernico.sif
+sbatch copernico.job
 ```

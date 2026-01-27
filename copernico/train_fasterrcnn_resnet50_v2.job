@@ -11,4 +11,4 @@
 #SBATCH --mem=8G
 
 module load apptainer
-apptainer run --nv fasterrcnn_resnet50_v2.sif
+apptainer run --nv train_fasterrcnn_resnet50_v2.sif
