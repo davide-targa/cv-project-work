@@ -22,7 +22,7 @@ Il training avviene per mezzo dello script `train.py`. Lo script usa `argparse` 
 
 Gli argomenti richiesti sono:
 - numero di epoche del training
-- modello da addestrare (tra quelle presenti in `src/models`)
+- modello da addestrare (tra quelli presenti in `src/models`)
 - dataset da utilizzare (`base` o `text`)
 
 Nel file `src/utils/datasets.py` sono stati definiti due dataset (`torch.utils.data.Dataset`):
@@ -43,7 +43,7 @@ python src/train.py 10 fasterrcnn_resnet50 text
 python src/train.py 30 ssd300_vgg16 text
 ```
 
-Durante il training per mezzo del logger definito in `src/utils/cv_logger` viene loggata per ogni epoca la loss e il tempo richiesto.
+Durante il training per mezzo del logger definito in `src/utils/cv_logger` viene loggata per ogni epoca la loss, il tempo richiesto e il numero di persone rilevate.
 
 Al termine di ogni epoca se la loss è migliore rispetto a quella dell'epoca precedente vengono salvati i pesi del modello su file e rimosso il vecchio file dei pesi. In questo modo al termine del numero previsto di epoche di addestramento rimarrà solamente il file con i pesi migliori.
 
@@ -67,11 +67,11 @@ L'inferenza avviene come segue:
 python src/predict.py fasterrcnn_resnet50 fasterrcnn_resnet50_weights.pth input.mp4 output.mp4
 ```
 
-# Esecuzione su cluster UniFE Copernico
+# Esecuzione su cluster
 
-A scopo di confronto training e inferenza sono state implementate anche per essere eseguite sul cluster HPC di UniFE: Copernico.
+A scopo di confronto training e inferenza sono state implementate anche per essere eseguite sul cluster HPC.
 
-A tale scopo è necessario utilizzare `apptainer` per definire delle immagini da eseguire. Le definizioni delle immagini sono contenute nei file `.def` presenti nella directory `copernico`.
+A tale scopo è necessario utilizzare `apptainer` per definire delle immagini da eseguire. Le definizioni delle immagini sono contenute nei file `.def` presenti nella directory `jobs`.
 
 Si effettua quindi il build dell'immagine apptainer:
 ```bash
