@@ -54,7 +54,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
     detection_frames_dir = Path(tmpdirname) / "detection_frames"
     detection_frames_dir.mkdir(parents=True, exist_ok=True)
     logger.info(f"Estraggo i frame dal video {INPUT_VIDEO_PATH} in {frames_dir}...")
-    ffmpeg["-i", str(INPUT_VIDEO_PATH.absolute()), f"{frames_dir / "out-%06d.png"}"]()
+    ffmpeg["-i", str(INPUT_VIDEO_PATH.absolute()), frames_dir / "out-%06d.png"]()
     logger.info("Estrazione frame completata.")
 
     model = get_model()
@@ -70,7 +70,7 @@ with tempfile.TemporaryDirectory() as tmpdirname:
         image_tensor = to_tensor(image)
         preds = model([image_tensor.to(device)])
         boxes = preds[0]["boxes"][preds[0]["scores"] > SCORE_THRESHOLD]
-        output_image = draw_bounding_boxes(to_tensor(image), boxes=torch.tensor(boxes, dtype=torch.float32), colors="blue", width=5)
+        output_image = draw_bounding_boxes(to_tensor(image), boxes=torch.tensor(boxes, dtype=torch.float32), colors="blue", width=2)
         save_image(output_image, detection_frames_dir / f"det-{frame.name.split('-')[1]}")
         toc = time.perf_counter()
         logger.info(f"[{idx:04d}/{len(frames_files):04d}] Processato il frame {frame.name} in {toc - tic:.3f} secondi ({len(boxes)} persona/e).")
