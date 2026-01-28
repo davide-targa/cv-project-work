@@ -3,8 +3,8 @@
 #SBATCH --nodes=1                                   # 1 node
 #SBATCH --ntasks-per-node=16                        # tasks per node
 #SBATCH --time=0:10:00                              # time limit: 1 hour
-#SBATCH --error=predict_fasterrcnn_resnet50_%j.err  # standard error file
-#SBATCH --output=predict_fasterrcnn_resnet50_%j.out # standard output file
+#SBATCH --error=predict_ssd300_vgg16_%j.err         # standard error file
+#SBATCH --output=predict_ssd300_vgg16_%j.out        # standard output file
 ##SBATCH --partition=gpuSlim                        # partition name
 #SBATCH --partition=gpu                             # partition name
 #SBATCH --gres=gpu:1
