@@ -12,6 +12,5 @@ args = parser.parse_args()
 
 detections_path = Path(__file__).parent.parent / "runs" / "detect" / "train" / "weights"
 model = YOLO(detections_path / "best.pt")
-# results = model(["src/testimage.jpg"])
 results = model(args.input_video, save=True, show_labels=False)
 # results = model(args.input_video, save=True, show=True, show_labels=False)
