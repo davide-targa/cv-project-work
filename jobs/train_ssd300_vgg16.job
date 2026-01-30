@@ -10,5 +10,5 @@
 #SBATCH --gres=gpu:1
 #SBATCH --mem=8G
 
-module load apptainer
-apptainer run --nv train_ssd300_vgg16.sif
+module load python
+bin/python src/train.py 300 ssd300_vgg16 base
