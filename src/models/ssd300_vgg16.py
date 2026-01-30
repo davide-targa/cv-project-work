@@ -17,7 +17,4 @@ def get_model():
         num_anchors=num_anchors,
         num_classes=2,
     )
-    import pdb
-
-    pdb.set_trace()
     return model
