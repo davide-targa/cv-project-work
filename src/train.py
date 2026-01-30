@@ -58,7 +58,7 @@ def main(num_epochs: int, model_module: str, dataset: torch.utils.data.Dataset) 
         for imgs, targets in train_loader:
             imgs = [img.to(device) for img in imgs]
             targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
-            loss_dict = model(imgs, targets)  # type: ignore[arg-type]
+            loss_dict = model(imgs, targets)
             loss = sum(loss_dict.values())
             optimizer.zero_grad()
             loss.backward()
